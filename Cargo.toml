@@ -5,7 +5,15 @@ edition = "2024"
 license = "LGPL-3.0-or-later"
 description = "Rust bindings for the Warcraft 3 Stats Observer API memory map"
 repository = "https://github.com/garlic-hub/Warcraft3StatsObserverRs"
+documentation = "https://docs.rs/warcraft3-stats-observer"
+readme = "README.md"
 keywords = ["warcraft"]
 
 [dependencies]
 winapi = { version = "0.3.9", features = ["memoryapi", "errhandlingapi", "minwindef", "handleapi"] }
+
+# docs.rs builds on Linux by default; this crate is Windows-only, so target the
+# Windows toolchain explicitly so the documentation actually builds.
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = ["x86_64-pc-windows-msvc"]
