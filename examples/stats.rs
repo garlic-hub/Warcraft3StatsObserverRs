@@ -1,13 +1,13 @@
 use std::time::Duration;
 
-use warcraft3_stats_observer::ObserverData;
+use warcraft3_stats_observer::ObserverHandle;
 
 fn main() {
-    let od = match ObserverData::new() {
+    let od = match ObserverHandle::new() {
         Ok(od) => od,
         Err(e) => {
             eprintln!("Error opening observer API. Is Warcraft3 running? Error: {e:?}");
-            return
+            return;
         }
     };
 
@@ -26,9 +26,8 @@ fn main() {
     println!("game name: {}", game.game_name);
     println!("map name: {}", game.map_name);
 
-    let players = &od.players;
     loop {
-        for player in players.iter().take(game.active_player_count as usize) {
+        for player in od.players.iter().take(od.game.active_player_count as usize) {
             println!("{} has {} gold {} lumber", player.name, { player.gold }, {
                 player.lumber
             });

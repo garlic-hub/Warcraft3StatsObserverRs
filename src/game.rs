@@ -8,7 +8,7 @@ const MAX_MAP_NAME_LENGTH: usize = 256;
 #[repr(C, packed)]
 pub struct ObserverGame {
     pub in_game: bool,
-    clock_ms: u32,
+    pub clock_ms: u32,
     pub active_player_count: u8,
     pub game_name: PaddedString<MAX_GAME_NAME_LENGTH>,
     pub map_name: PaddedString<MAX_MAP_NAME_LENGTH>,
