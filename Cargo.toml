@@ -1,6 +1,6 @@
 [package]
 name = "warcraft3-stats-observer"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2024"
 license = "LGPL-3.0-or-later"
 description = "Rust bindings for the Warcraft 3 Stats Observer API memory map"
